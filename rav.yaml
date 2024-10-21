@@ -1,0 +1,14 @@
+scripts:
+  server: cd src && python manage.py runserver
+  migrate: cd src && python manage.py makemigrations && python manage.py migrate
+  su: cd src && python manage.py createsuperuser
+  cs: cd src && python manage.py collectstatic
+  watch: npx tailwindcss -i ./src/static/tailwind/input.css -o ./src/static/css/output.css --watch 
+  freeze: venv/bin/python -m pip freeze
+
+  installs:
+    - pip-compile src/requirements/requirements.in -o src/requirements.txt
+    - python -m pip install -r src/requirements.txt
+  nm: npm install
+  
+  win_freeze: python -m pip freeze
